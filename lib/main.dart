@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice/next_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,22 +43,20 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
 
         title: Text('野々村空河のFlutter学習'),
-        actions: <Widget>[
-          Icon(Icons.add),
-          Icon(Icons.share)
-        ],
       ),
-      body: Container(
-        height: double.infinity,
-        color: Colors.red,
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Row(
-            children: <Widget> [
-              Text('こんな感じで文章がかける！'),
-              Text('こんな感じで文章がかける！'),
-            ],
-          ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            //ここに押したら反応するコードを書く
+            //画面遷移のコード
+            Navigator.push(
+              context,
+              MaterialPageRoute<void>(
+                builder: (context) => NextPage(),
+              ),
+            );
+          },
+          child: const Text('次の画面'),
         ),
       ),
       floatingActionButton: FloatingActionButton(
